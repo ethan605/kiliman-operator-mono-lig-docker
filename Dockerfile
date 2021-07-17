@@ -1,7 +1,16 @@
-FROM python:alpine
+FROM python:3.7-alpine
 
 RUN pip install fonttools \
-    && apk add --update git npm \
+    && apk add --update \
+        pkgconfig \
+        pixman-dev \
+        cairo-dev \
+        pango-dev \
+        make \
+        g++ \
+        libjpeg-turbo-dev \
+        git \
+        npm \
     && git clone https://github.com/kiliman/operator-mono-lig.git \
     && apk del git
 
